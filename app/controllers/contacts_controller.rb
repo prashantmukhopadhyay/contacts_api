@@ -37,6 +37,6 @@ class ContactsController < ApplicationController
   end
 
   def comments
-    render json: Contact.comments(params[:user_id, :contact_id])
+    render json: Contact.comments(params[:user_id], params[:id])
   end
 end
