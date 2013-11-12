@@ -32,5 +32,11 @@ class ContactsController < ApplicationController
     head :ok
   end
 
+  def favorites
+    render json: Contact.favorites(params[:user_id])
+  end
 
+  def comments
+    render json: Contact.comments(params[:user_id, :contact_id])
+  end
 end

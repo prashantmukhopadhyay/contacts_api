@@ -15,4 +15,16 @@ class User < ActiveRecord::Base
     class_name: 'ContactShare',
     foreign_key: :user_id,
     primary_key: :id)
+
+  has_many(
+    :contact_groups,
+    class_name: 'ContactGroup',
+    foreign_key: :user_id,
+    primary_key: :id)
+
+  has_many(
+    :comments,
+    class_name: 'Comment',
+    foreign_key: :user_id,
+    primary_key: :id)
 end

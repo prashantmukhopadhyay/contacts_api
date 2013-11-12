@@ -10,7 +10,7 @@ class ContactSharesController < ApplicationController
   end
 
   def destroy
-    ContactShare.find(params[:id]).destroy;
+    ContactShare.find(params[:id]).destroy
     head :ok
   end
 end
