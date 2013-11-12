@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   has_many(
     :contact_shares,
-    class_name: 'ContactShare'
+    class_name: 'ContactShare',
     foreign_key: :user_id,
     primary_key: :id)
 end

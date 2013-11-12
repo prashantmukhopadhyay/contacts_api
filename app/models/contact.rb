@@ -11,7 +11,7 @@ class Contact < ActiveRecord::Base
 
   has_many(
     :contact_shares,
-    class_name: 'ContactShare'
+    class_name: 'ContactShare',
     foreign_key: :contact_id,
     primary_key: :id)
 
@@ -19,7 +19,7 @@ class Contact < ActiveRecord::Base
 
   def self.contacts_for_user_id(user_id)
     user_contacts = self
-      .join('LEFT OUTER JOIN contact_shares ON contacts.id = contact_shares.contact_id')
+      .joins('LEFT OUTER JOIN contact_shares ON contacts.id = contact_shares.contact_id')
       .where('contacts.user_id = ? OR contact_shares.user_id = ?', user_id, user_id)
   end
 end
